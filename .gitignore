@@ -1,0 +1,17 @@
+*
+
+!/Dockerfile
+!/docker-compose.yml
+
+!/package.json
+!/install.js
+
+!/test
+!/test/**/*
+
+!/.circleci
+!/.circleci/**/*
+
+!/.gitignore
+
+!/README.md
