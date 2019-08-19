@@ -1,0 +1,16 @@
+requires: 
+  plugins: 
+    '@fbl-plugins/crypto': <$- ctx.package.dependencies['@fbl-plugins/crypto'] $>
+    
+pipeline:
+  '--':
+    - encrypt:
+        password: test
+        file: test.txt
+        destination: /tmp/test.enc
+
+
+    - decrypt:
+        password: test
+        file: /tmp/test.enc
+        destination: /tmp/test.dec    

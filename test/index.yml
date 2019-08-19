@@ -1,0 +1,11 @@
+pipeline:
+  '--':
+    - ctx:
+        '$.package':
+          files: 
+           - ../package.json
+    
+    - '@': crypto
+    - '@': html-to-pdf
+    - '@': http
+  

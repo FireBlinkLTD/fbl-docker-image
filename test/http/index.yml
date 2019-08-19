@@ -1,0 +1,9 @@
+requires: 
+  plugins: 
+    '@fbl-plugins/http': <$- ctx.package.dependencies['@fbl-plugins/http'] $>
+    
+pipeline:
+  'http':
+    request:
+      method: 'GET'
+      url: https://google.com    
