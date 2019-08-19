@@ -13,5 +13,6 @@
 !/.circleci/**/*
 
 !/.gitignore
+!/.mergify.yml
 
 !/README.md
