@@ -78,8 +78,8 @@ workflows:
 
       - release:
           requires:
-            - build
-            - release
+            - build            
           filters:
             branches:
-              only: master
+              only: 
+                - master
