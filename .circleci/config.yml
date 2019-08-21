@@ -6,13 +6,11 @@
 #
 version: 2
 
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:10.15
-
 jobs:  
   release:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:10.15
     steps:
       - run:
           name: Download hub
