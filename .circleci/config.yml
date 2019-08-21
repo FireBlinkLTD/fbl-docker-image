@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Create GitHub Release
           command: |
-            hub-linux-amd64-2.12.3/bin/hub release create 1.0.CIRCLE_BUILD_NUM
+            hub-linux-amd64-2.12.3/bin/hub release create 1.0.$CIRCLE_BUILD_NUM
   build:
     working_directory: ~/workspace
     machine: true
