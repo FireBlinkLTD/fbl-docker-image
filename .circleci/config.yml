@@ -12,10 +12,22 @@ defaults: &defaults
     - image: circleci/node:10.15
 
 jobs:  
+  release:
+    steps:
+      - run:
+          name: Download hub
+          command: |         
+            curl -L https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz --output hub-linux-amd64-2.12.3.tgz
+            tar xvzf hub-linux-amd64-2.12.3.tgz
+           
+      - run:
+          name: Create GitHub Release
+          command: |
+            hub-linux-amd64-2.12.3/bin/hub release create 1.0.CIRCLE_BUILD_NUM
   build:
     working_directory: ~/workspace
     machine: true
-    steps:     
+    steps:         
       - run:
           name: Install nvm
           command: |
@@ -53,3 +65,21 @@ jobs:
           name: run tests and generate coverage report
           command: |
             npm run docker:test
+
+
+workflows:
+  version: 2
+  build_and_release:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /greenkeeper/.*/   
+
+      - release:
+          requires:
+            - build
+            - release
+          filters:
+            branches:
+              only: master
