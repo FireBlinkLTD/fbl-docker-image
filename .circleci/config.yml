@@ -12,6 +12,8 @@ jobs:
     docker:
       - image: circleci/node:10.15
     steps:
+      - checkout
+      
       - run:
           name: Download hub
           command: |         
