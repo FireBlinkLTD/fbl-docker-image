@@ -13,7 +13,7 @@ jobs:
       - image: circleci/node:10.15
     steps:
       - checkout
-      
+
       - run:
           name: Download hub
           command: |         
@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Create GitHub Release
           command: |
+            export GIT_EDITOR=nano
             hub-linux-amd64-2.12.3/bin/hub release create 1.0.$CIRCLE_BUILD_NUM
   build:
     working_directory: ~/workspace
