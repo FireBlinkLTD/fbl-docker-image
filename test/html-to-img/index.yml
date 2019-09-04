@@ -1,0 +1,11 @@
+requires: 
+  plugins: 
+    '@fbl-plugins/html-to-img': <$- ctx.package.dependencies['@fbl-plugins/html-to-img'] $>
+    
+pipeline:
+  'html->img':
+    from:
+      folder: .
+      relativePath: index.html
+    img:
+      path: /tmp/index.png

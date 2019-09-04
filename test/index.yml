@@ -7,5 +7,6 @@ pipeline:
     
     - '@': crypto
     - '@': html-to-pdf
+    - '@': html-to-img
     - '@': http
   
