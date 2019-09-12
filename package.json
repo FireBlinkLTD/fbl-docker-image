@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@fbl-plugins/crypto": "1.1.1",
-    "@fbl-plugins/html-to-pdf": "1.0.3",
+    "@fbl-plugins/html-to-pdf": "1.0.4",
     "@fbl-plugins/html-to-img": "1.0.1",
     "@fbl-plugins/http": "1.1.2",
     "@fbl-plugins/k8s-helm": "1.0.2",
