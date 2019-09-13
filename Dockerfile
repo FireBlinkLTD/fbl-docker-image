@@ -1,5 +1,7 @@
 FROM node:lts-slim
 
+RUN usermod -a -G audio,video node
+
 # Install native dependencies for puppeteer
 RUN apt-get update && \
     apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
@@ -23,14 +25,6 @@ COPY package.json .
 COPY install.js .
 
 RUN node install.js
-
-# Install puppeteer so it's available in the container.
-RUN groupadd -r user && useradd -r -g user -G audio,video user \
-    && mkdir -p /home/user/Downloads \
-    && chown -R user:user /home/user    
-
-# Run everything after as non-privileged user.
-USER user
 
 # Verify installation of K8s CLI tools
 RUN kubectl version --client
