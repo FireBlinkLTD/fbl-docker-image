@@ -21,10 +21,22 @@ jobs:
             tar xvzf hub-linux-amd64-2.12.3.tgz
            
       - run:
+          name: Download jq
+          command: |
+            curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output jq
+
+      - run:
           name: Create GitHub Release
           command: |
             export GIT_EDITOR=nano
-            hub-linux-amd64-2.12.3/bin/hub release create 1.0.$CIRCLE_BUILD_NUM -m "Automated Release for latest changes"
+
+            VERSIONS=$(jq -r '.dependencies | to_entries[] | join(" - ")' package.json)           
+
+            hub-linux-amd64-2.12.3/bin/hub release create 1.0.$CIRCLE_BUILD_NUM -m "Automatic release for latest changes.
+
+            Included FBL and FBL Plugins:
+
+            $VERSIONS"
   build:
     working_directory: ~/workspace
     machine: true
