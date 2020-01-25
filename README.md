@@ -19,7 +19,7 @@ You may find what fbl, plugins and what versions are included in the build by lo
 
 ## Kubernetes Tools
 
-`kubectl` and `helm` are included to support `@fbl-plugins/k8s-kubectl` and `@fbl-plugins/k8s-helm` plugins.
+`kubectl` and `helm 3` are included to support `@fbl-plugins/k8s-kubectl` and `@fbl-plugins/k8s-helm` plugins.
 
 ## Docker Compose Example
 
