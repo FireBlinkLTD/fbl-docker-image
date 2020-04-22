@@ -1,7 +1,7 @@
 # fireblink/fbl-plugins Docker Image
 
 [![CircleCI](https://circleci.com/gh/FireBlinkLTD/fbl-docker-image.svg?style=svg)](https://circleci.com/gh/FireBlinkLTD/fbl-docker-image)
-[![Greenkeeper badge](https://badges.greenkeeper.io/FireBlinkLTD/fbl-docker-image.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/FireBlinkLTD/fbl-docker-image/badge.svg)](https://snyk.io/test/github/FireBlinkLTD/fbl-docker-image)
 
 Fat image with FBL and all officially supported plugins.
 
