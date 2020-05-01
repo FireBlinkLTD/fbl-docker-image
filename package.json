@@ -2,7 +2,9 @@
   "name": "fbl-docker-image",
   "version": "1.0.0",
   "scripts": {
-    "docker:test": "docker-compose up --build --abort-on-container-exit"
+    "docker:test": "docker-compose up --build --abort-on-container-exit",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "description": "Docker image with latest fbl and all official plugins",
   "repository": "git@github.com:FireBlinkLTD/fbl-docker-image.git",
@@ -17,6 +19,8 @@
     "@fbl-plugins/k8s-helm": "1.1.1",
     "@fbl-plugins/k8s-kubectl": "1.2.4",
     "@fbl-plugins/keycloak-admin-client": "1.6.0",
-    "fbl": "1.13.2"
-  }
+    "fbl": "1.13.2",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
