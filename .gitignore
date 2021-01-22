@@ -9,11 +9,11 @@
 !/test
 !/test/**/*
 
-!/.circleci
-!/.circleci/**/*
-
 !/.gitignore
 !/.mergify.yml
 
 !/README.md
 !/LICENSE
+
+!/.github
+!/.github/**
