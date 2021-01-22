@@ -28,11 +28,12 @@ jobs:
 
       # create github release (docker hub will pick the new tag and will run the integration)
       - env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE=$(date +%Y%m%d%H%M)
           export GIT_EDITOR=nano
-
+          
           VERSIONS=$(jq -r '.dependencies | to_entries[] | join(" - ")' package.json)           
 
           hub-linux-amd64-2.12.3/bin/hub release create 1.0.$DATE -m "Automatic release for the latest changes.
