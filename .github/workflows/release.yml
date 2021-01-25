@@ -14,19 +14,21 @@ jobs:
         with:
           node-version: '14.x'
 
-      # Setup hub
-      - uses: geertvdc/setup-hub@master      
-
       # Test
       - run: docker-compose up --build --abort-on-container-exit
 
+      # Download hub
+      - run: |
+          curl -L https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz --output hub-linux-amd64-2.12.3.tgz
+          tar xvzf hub-linux-amd64-2.12.3.tgz
+      
       # Download jq
       - run: |
           curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output jq
 
       # create github release (docker hub will pick the new tag and will run the integration)
       - env:
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_USER: vlad-tkachenko
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE=$(date +%Y%m%d%H%M)
@@ -34,7 +36,7 @@ jobs:
           
           VERSIONS=$(jq -r '.dependencies | to_entries[] | join(" - ")' package.json)           
 
-          hub release create 1.0.$DATE -m "Automatic release for the latest changes.
+          hub-linux-amd64-2.12.3/bin/hub release create 1.0.$DATE -m "Automatic release for the latest changes.
 
           Included FBL and FBL Plugins:
 
